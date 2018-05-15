@@ -4,8 +4,8 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class LibraryTest {
-  Library library;
-  Book book;
+  private Library library;
+  private Book book;
 
   @Before
   public void before() {
@@ -31,5 +31,12 @@ public class LibraryTest {
     library.addBook(book);
     library.addBook(book);
     assertEquals(3, library.bookCount());
+  }
+
+  @Test
+  public void canRemoveBookFromLibrary() {
+    library.addBook(book);
+    assertEquals(book, library.removeBook());
+    assertEquals(0, library.bookCount());
   }
 }
